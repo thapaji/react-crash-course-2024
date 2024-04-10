@@ -11,6 +11,7 @@ import { MainLayout } from "./layouts/MainLayout";
 import { JobsPage } from "./pages/JobsPage";
 import { JobPage, jobLoader } from "./pages/JobPage";
 import { AddJobPage } from "./pages/AddJobPage";
+import { EditJobPage } from "./pages/EditJobPage";
 
 /* ADD NEW JOB TO JSON SERVER*/
 const App = () => {
@@ -41,6 +42,7 @@ const App = () => {
         <Route index element={<Homepage />} />
         <Route path="/jobs" element={<JobsPage />} />
         <Route path="/add-job" element={<AddJobPage addJobsSubmit={addJob} />} />
+        <Route path="/edit-job/:id" element={<EditJobPage />} loader={jobLoader} />
         <Route path="/jobs/:id" element={<JobPage deleteJob={deleteJob} />} loader={jobLoader} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
